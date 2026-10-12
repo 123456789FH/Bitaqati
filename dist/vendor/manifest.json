@@ -1,0 +1,27 @@
+{
+  "name": "js-aruco2",
+  "version": "2.0.0",
+  "repository": "https://github.com/damianofalcioni/js-aruco2",
+  "license": "MIT plus upstream notices retained in LICENSE-js-aruco2.txt",
+  "dictionary": "ARUCO_MIP_36h12",
+  "files": [
+    {
+      "file": "cv.js",
+      "url": "https://cdn.jsdelivr.net/npm/js-aruco2@2.0.0/src/cv.js",
+      "sha256": "1cb9e470388b32fbd132dc74d16ade42703126b805b044985418039b9ea8182b",
+      "bytes": 16649
+    },
+    {
+      "file": "aruco.js",
+      "url": "https://cdn.jsdelivr.net/npm/js-aruco2@2.0.0/src/aruco.js",
+      "sha256": "5fbd6344b8152de381cbe2ff64aa9c285999f15e8492cb092027542fe11d7d54",
+      "bytes": 26213
+    },
+    {
+      "file": "LICENSE-js-aruco2.txt",
+      "url": "https://cdn.jsdelivr.net/npm/js-aruco2@2.0.0/LICENSE.txt",
+      "sha256": "1a304e21bce4169c8bd6dac5aa8aae843bbb9d8a5193fbe50ab8d64242a0d76c",
+      "bytes": 11679
+    }
+  ]
+}

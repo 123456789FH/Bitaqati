@@ -1,0 +1,16 @@
+{
+  "status": "passed",
+  "imageCases": 261,
+  "elapsedMs": 896,
+  "groups": [
+    "all 40 card IDs × four rotations",
+    "downsampled SVGs",
+    "perspective resampling",
+    "moderate tilt accepted",
+    "ambiguous tilt rejected",
+    "bit-error threshold",
+    "unknown IDs and empty frames",
+    "multiple cards and duplicate conflicts"
+  ],
+  "note": "Synthetic images test decoding and mapping; physical camera/print testing remains a separate classroom check."
+}

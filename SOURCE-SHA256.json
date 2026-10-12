@@ -1,0 +1,15 @@
+{
+  "dist/app.js": "c282f6c034cdf3c304e30a11357e10d0ae14dee7bcc01f540022548cbd34701f",
+  "dist/core.js": "3c3c7fe7f8eef8ff036bb527c650064583bbd3f5907e8dcadb7f0859b3f571a5",
+  "dist/fonts/NotoNaskhArabic-Bold.ttf": "d328b92b6bb762fd61d6438dddb7b00dd0663115afb292a358101808efe117b2",
+  "dist/fonts/NotoSansArabic-Bold.ttf": "457926cb001ac787dc7415c89e6f5b1c4ce3a0f2c91d0cabc1bc19a05638e7de",
+  "dist/fonts/NotoSansArabic-Regular.ttf": "d6efa4c9fac8ecefd2de19676acc3a396ba7aee99ba7a2d513950246841b6725",
+  "dist/fonts/OFL.txt": "149f75e6562cf1e418f20ddac34701a6f60d858c32e93a7a3de949cf25354a24",
+  "dist/index.html": "e1abe5b2192804b7b9d8d463ed69d831db07d114f631786e1445f32b809c9bb2",
+  "dist/styles.css": "c2cacb4443e5cc96bb59467bd41307f0ee74b22ed5ee5ab57ba16c5b95178c0c",
+  "dist/vendor/LICENSE-js-aruco2.txt": "1a304e21bce4169c8bd6dac5aa8aae843bbb9d8a5193fbe50ab8d64242a0d76c",
+  "dist/vendor/aruco.js": "5fbd6344b8152de381cbe2ff64aa9c285999f15e8492cb092027542fe11d7d54",
+  "dist/vendor/cv.js": "1cb9e470388b32fbd132dc74d16ade42703126b805b044985418039b9ea8182b",
+  "dist/vendor/manifest.json": "a526c9df4d6ef1957d56ce8b555a4f75ea03d696df3f83797fd634b8084b123a",
+  "dist/vision.js": "c6acc6f9801641e92fe92e63917ab71b5a24ba953d611ce7925a759dfbc68b63"
+}

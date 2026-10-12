@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#135d50">
+  <meta name="description" content="بطاقتي: تقويم عربي بسيط بالبطاقات الورقية والكاميرا. نموذج أولي للمعلمة فاطمة هزازي.">
+  <title>بطاقتي | تقويم سريع بالبطاقات</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="vendor/cv.js" defer></script>
+  <script src="vendor/aruco.js" defer></script>
+  <script src="vision.js" defer></script>
+  <script src="core.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="app-header">
+    <a href="./" class="brand" aria-label="بطاقتي، البداية"><span class="brand-mark" aria-hidden="true">ب</span><span>بطاقتي<small>تقويم سريع بالبطاقات</small></span></a>
+    <div class="header-actions"><span class="prototype-badge">نسخة تجريبية</span><button type="button" id="help-btn" class="button quiet">كيف أبدأ؟</button><button type="button" id="history-btn" class="button quiet">السجل</button></div>
+  </header>
+  <main class="shell" id="teacher-app">
+    <div class="page-intro"><p class="eyebrow">مشاركة من كل متعلم</p><h1>سؤال واضح. إجابات أمامك.</h1><p>اكتب سؤالك، واقرأ البطاقات بالكاميرا، ثم ناقش ما تكشفه الإجابات.</p></div>
+    <ol class="steps" aria-label="خطوات الحصة"><li id="step-setup" class="active" aria-current="step"><span>١</span> السؤال</li><li id="step-scan"><span>٢</span> المسح</li><li id="step-results"><span>٣</span> النتائج</li></ol>
+    <div class="notice" id="notice" role="status" aria-live="polite" hidden></div>
+    <section id="setup-view" aria-labelledby="setup-heading">
+      <div class="setup-layout">
+        <form id="question-form" class="panel question-panel">
+          <div class="section-heading"><div><p class="eyebrow">ابدأ من هنا</p><h2 id="setup-heading">جهّز سؤال الحصة</h2></div><button type="button" id="example-btn" class="button quiet">مثال جاهز</button></div>
+          <label for="lesson-title">عنوان الحصة</label><input id="lesson-title" maxlength="100" value="بذور تنمو وأعداد تفسّر" required>
+          <label for="question-text">السؤال</label><textarea id="question-text" rows="3" maxlength="500" required></textarea>
+          <div class="choice-editor" id="choice-editor">
+            <label class="choice-field"><span class="letter">أ</span><input id="option-A" aria-label="الخيار أ" maxlength="150" required></label>
+            <label class="choice-field"><span class="letter">ب</span><input id="option-B" aria-label="الخيار ب" maxlength="150" required></label>
+            <label class="choice-field"><span class="letter">ج</span><input id="option-C" aria-label="الخيار ج" maxlength="150" required></label>
+            <label class="choice-field"><span class="letter">د</span><input id="option-D" aria-label="الخيار د" maxlength="150" required></label>
+          </div>
+          <div class="answer-key"><label for="correct-answer">الإجابة الصحيحة <small>تظهر لك فقط</small></label><select id="correct-answer"><option value="A">أ</option><option value="B" selected>ب</option><option value="C">ج</option><option value="D">د</option></select></div>
+          <div class="form-footer"><span id="save-status" class="muted" role="status">يحفظ الإعداد على هذا المتصفح</span><button type="submit" class="button primary">ابدأ السؤال <span aria-hidden="true">←</span></button></div>
+        </form>
+        <aside class="setup-side">
+          <section class="panel" aria-labelledby="cards-heading"><p class="eyebrow">جهّزها مرة واحدة</p><h2 id="cards-heading">بطاقات صفك</h2><label for="card-count">عدد المتعلمين</label><select id="card-count"></select><p class="muted">بطاقة مختلفة لكل متعلم، من ١ إلى ٤٠.</p><details><summary>أضف الأسماء — اختياري</summary><label for="student-names">اسم واحد في كل سطر، حسب ترتيب البطاقات</label><textarea id="student-names" rows="5" maxlength="4000" placeholder="اسم صاحب البطاقة ١&#10;اسم صاحب البطاقة ٢"></textarea></details><button type="button" id="print-cards-btn" class="button secondary full">عرض البطاقات وطباعتها</button><p class="small-note">الحرف في الأعلى هو الإجابة المختارة. استخدم بطاقات «بطاقتي» المطبوعة من هنا.</p></section>
+          <section class="try-panel"><span class="eyebrow">جرّب الفكرة الآن</span><h3>قبل تشغيل الكاميرا</h3><p>اختبر قراءة ثلاث بطاقات من صورة تجريبية جاهزة.</p><button type="button" id="demo-btn" class="button secondary full">تجربة سريعة دون كاميرا</button></section>
+        </aside>
+      </div>
+    </section>
+    <section id="scan-view" aria-labelledby="scan-heading" hidden>
+      <div class="section-heading"><div><p class="eyebrow" id="session-kind">جلسة الحصة</p><h2 id="scan-heading">اجمع الإجابات</h2></div><button id="student-view-btn" type="button" class="button secondary">عرض السؤال للمتعلمين</button></div>
+      <div class="question-strip"><p id="scan-question"></p><div id="scan-options" class="compact-options"></div></div>
+      <div class="scan-layout">
+        <section class="panel camera-panel">
+          <div class="camera-stage" id="camera-stage"><video id="camera-video" playsinline muted></video><canvas id="camera-overlay"></canvas><div id="camera-placeholder"><span class="camera-glyph" aria-hidden="true">▣</span><h3>وجّه الكاميرا إلى البطاقات</h3><p>ثبّت البطاقة، واجعل حرف الإجابة في الأعلى.</p></div></div>
+          <div class="camera-status" id="camera-status" role="status" aria-live="polite">الكاميرا متوقفة</div>
+          <div class="camera-actions"><button type="button" id="start-camera-btn" class="button primary">تشغيل الكاميرا</button><button type="button" id="stop-camera-btn" class="button secondary" hidden>إيقاف مؤقت</button><button type="button" id="switch-camera-btn" class="button quiet">تبديل الكاميرا</button><button type="button" id="upload-image-btn" class="button quiet">اقرأ من صورة</button><input type="file" id="image-input" accept="image/png,image/jpeg,image/webp" hidden></div>
+          <p class="small-note">تُعتمد القراءة بعد ثباتها. يمكن تغيير الاختيار أثناء المسح، وتبقى آخر إجابة مستقرة.</p>
+        </section>
+        <aside class="panel response-panel"><p class="eyebrow">تأكيد الاستلام</p><h3 id="scan-count">قُرئت ٠ من ٣ بطاقات</h3><div class="coverage-track"><span id="coverage-bar"></span></div><div id="student-grid" class="student-grid"></div><p class="small-note">ظهور علامة الاستلام يعني وصول الإجابة، ولا يبين صحتها.</p><button type="button" id="finish-btn" class="button primary full">إنهاء المسح وعرض النتائج</button><button type="button" id="copy-display-btn" class="button quiet full">انسخ رابط السؤال للحاسوب</button><p class="small-note">الرابط يعرض السؤال فقط. تُجمع النتائج على جهاز المسح.</p></aside>
+      </div>
+    </section>
+    <section id="results-view" aria-labelledby="results-heading" hidden>
+      <div class="section-heading"><div><p class="eyebrow" id="results-kind">نتائج السؤال</p><h2 id="results-heading">ماذا تخبرك الإجابات؟</h2></div><button type="button" id="new-question-btn" class="button primary">سؤال جديد</button></div>
+      <div class="panel results-question"><h3 id="result-question"></h3><p id="result-key" class="key-text"></p></div>
+      <div class="metric-grid"><div class="metric"><span>بطاقات مقروءة</span><strong id="metric-read">٠</strong><small id="metric-coverage"></small></div><div class="metric"><span>إجابات صحيحة</span><strong id="metric-correct">٠</strong><small>من الإجابات المقروءة</small></div><div class="metric"><span>لم تُقرأ بعد</span><strong id="metric-unread">٠</strong><small>تُعرض منفصلة عن الأخطاء</small></div></div>
+      <div class="results-layout"><section class="panel"><h3>توزيع الاختيارات</h3><div id="answer-chart" class="answer-chart"></div><p class="small-note">ناقش سبب الاختيار قبل الانتقال إلى السؤال التالي.</p></section><section class="panel"><h3>الإجابات بالتفصيل</h3><div class="table-wrap"><table><thead><tr><th>البطاقة</th><th>الاسم</th><th>الاختيار</th><th>النتيجة</th></tr></thead><tbody id="results-table"></tbody></table></div></section></div>
+      <div class="result-actions"><button type="button" id="csv-btn" class="button secondary">تنزيل النتائج CSV</button><button type="button" id="resume-btn" class="button secondary">استكمال البطاقات غير المقروءة</button><button type="button" id="retry-btn" class="button quiet">محاولة جديدة للسؤال نفسه</button></div>
+    </section>
+    <footer class="app-footer"><span>أ/ فاطمة هزازي</span><span>بيانات هذا النموذج تُحفظ في المتصفح المستخدم</span><button id="backup-btn" type="button" class="text-button">تنزيل نسخة احتياطية</button><button id="restore-btn" type="button" class="text-button">استعادة نسخة</button><input type="file" id="backup-input" accept="application/json,.json" hidden></footer>
+  </main>
+  <main id="student-display" class="student-display" hidden><p class="eyebrow">بطاقتي · شارك بإجابتك</p><h1 id="display-question"></h1><div id="display-options" class="display-options"></div><p class="display-instruction">اختر الإجابة، واجعل حرفها في الأعلى، ثم ارفع بطاقتك.</p><button type="button" id="display-fullscreen" class="button quiet">ملء الشاشة</button></main>
+  <dialog id="help-dialog"><div class="dialog-heading"><h2>ابدأ بثلاث بطاقات</h2><button class="button quiet" data-close="help-dialog" aria-label="إغلاق" type="button">×</button></div><ol class="help-list"><li><strong>اطبع بطاقات «بطاقتي».</strong> أعط كل متعلم البطاقة التي تحمل رقمه.</li><li><strong>اكتب السؤال وحدد إجابته.</strong> اختر عدد المتعلمين، ثم اضغط «ابدأ السؤال».</li><li><strong>اعرض السؤال.</strong> افتحه في نافذة العرض أو انسخ رابطه للحاسوب.</li><li><strong>امسح البطاقات.</strong> اقرأ من كاميرا هذا الجهاز، أو من صورة تلتقطها.</li><li><strong>راجع النتائج.</strong> ناقش الاختيارات، ثم نزّل النتائج أو انتقل إلى سؤال جديد.</li></ol><p>الحروف المطبوعة: أ، ب، ج، د. الحرف الموجود في الأعلى يحدد الاختيار. وجّه الرمز الأسود إلى الكاميرا.</p><p class="small-note">هذا نموذج أولي. اختبر ثلاث بطاقات تحت إضاءة فصلك قبل التوسع. عرض السؤال على جهاز آخر لا يزامن النتائج بين الجهازين.</p><p class="small-note">لا تُرسل صور الكاميرا إلى خادم. احتفظ بنسخة احتياطية؛ فقد يؤدي مسح بيانات المتصفح إلى فقدان السجل المحلي.</p><button type="button" data-close="help-dialog" class="button primary">فهمت، ابدأ</button></dialog>
+  <dialog id="history-dialog"><div class="dialog-heading"><h2>سجل المحاولات</h2><button class="button quiet" data-close="history-dialog" aria-label="إغلاق" type="button">×</button></div><p class="small-note">تظهر الجلسات التجريبية بعلامة مستقلة. تُحفظ أحدث ١٠٠ محاولة على هذا المتصفح.</p><div id="history-list"></div></dialog>
+  <dialog id="cards-dialog"><div class="dialog-heading"><h2>بطاقات جاهزة للطباعة</h2><button class="button quiet" data-close="cards-dialog" aria-label="إغلاق" type="button">×</button></div><p>اطبع بالأبيض والأسود على ورق أبيض. اترك الفراغ الأبيض حول الرمز، واستخدم تغليفًا مطفيًا إن رغبت.</p><button type="button" id="print-now-btn" class="button primary">طباعة البطاقات</button><div id="card-previews" class="card-previews"></div></dialog>
+  <dialog id="confirm-dialog"><div class="dialog-heading"><h2 id="confirm-title">مراجعة الإجراء</h2></div><p id="confirm-text"></p><div class="dialog-actions"><button type="button" id="confirm-accept" class="button primary">متابعة</button><button type="button" id="confirm-cancel" class="button secondary">إلغاء</button></div></dialog>
+  <div id="print-root" class="print-root"></div>
+  <canvas id="work-canvas" hidden></canvas>
+</body>
+</html>
