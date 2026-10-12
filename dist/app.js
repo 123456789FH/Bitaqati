@@ -1,7 +1,7 @@
 (() => {
   'use strict';
   const C=window.Bitaqati, $=id=>document.getElementById(id), clone=v=>JSON.parse(JSON.stringify(v));
-  if(!C)return;
+  if(!C||location.hash.startsWith('#learn='))return;
   const el=(tag,cls,text)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(text!==undefined)n.textContent=text;return n;};
   const appendOptions=(container,q,cls)=>{container.replaceChildren();for(const k of C.letters){const n=el('div',cls);n.append(el('span','letter',C.labels[k]),el('span','option-text',q.options[k]));container.append(n);}};
   const base64Encode=text=>btoa(Array.from(new TextEncoder().encode(text),b=>String.fromCharCode(b)).join(''));
@@ -18,6 +18,7 @@
     $('display-fullscreen').addEventListener('click',async()=>{try{await document.documentElement.requestFullscreen();}catch{}});
     return;
   }
+  window.addEventListener('bitaqati-mode-change',e=>{if(e.detail?.mode!=='quiz')stopCamera();});
   const STORAGE='bitaqati-v1';
   let state={version:1,draft:C.defaultDraft(),history:[],current:null};
   let loadError=false;
@@ -85,7 +86,7 @@
     if(video.readyState>=2&&video.videoWidth&&video.currentTime!==lastVideoTime){
       lastVideoTime=video.currentTime;
       const scale=Math.min(1,1280/Math.max(video.videoWidth,video.videoHeight));const w=Math.round(video.videoWidth*scale),h=Math.round(video.videoHeight*scale);
-      if(work.width!==w||work.height!==h){work.width=w;work.height=h;overlay.width=w;overlay.height=h;}
+      if(work.width!==w||work.height!==h){work.width=w;work.height=h;}if(overlay.width!==w||overlay.height!==h){overlay.width=w;overlay.height=h;}
       try{
         ctx.drawImage(video,0,0,w,h);const detections=detector.detect(ctx.getImageData(0,0,w,h));const locked=new Set(state.current.lockedIds);const valid=detections.filter(d=>!locked.has(d.id));const r=tracker.push(valid,performance.now());commitUpdates(r.updates,'camera');
         overlayCtx.clearRect(0,0,w,h);overlayCtx.strokeStyle='#74e6c4';overlayCtx.lineWidth=Math.max(3,w/300);overlayCtx.fillStyle='#123f37';overlayCtx.font='bold '+Math.max(20,w/40)+'px sans-serif';

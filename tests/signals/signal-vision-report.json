@@ -1,0 +1,36 @@
+{
+  "status": "passed",
+  "imageCases": 1598,
+  "stateCases": 39,
+  "imageGroups": {
+    "all_480_identifiers": 480,
+    "signals_rejected_by_legacy_reader": 480,
+    "rotation_independence": 144,
+    "smaller_digital_markers": 48,
+    "strict_bit_rejection": 24,
+    "perspective": 48,
+    "legacy_cards_rejected": 360,
+    "unassigned_identifiers": 4,
+    "plain_colours_not_read": 7,
+    "multiple_cards": 3
+  },
+  "stateGroups": {
+    "frame_classification": 6,
+    "active_hat": 8,
+    "stability": 8,
+    "interruption": 6,
+    "timing": 6,
+    "reset": 1,
+    "roster": 4
+  },
+  "elapsedMs": 6132,
+  "dictionary": "ARUCO",
+  "bundledDictionaryEntries": 1023,
+  "assignedMarkerIds": [
+    0,
+    479
+  ],
+  "bitErrorsAccepted": 0,
+  "mapping": "mode offset (feelings 0 / hats 240) + (studentId - 1) * 6 + index in SignalVision.keys[mode]",
+  "note": "Synthetic SVG/raster and state tests only. Plain colour sheets are not decoded. Real print, classroom distance, focus, exposure, glare and camera performance require separate field verification."
+}

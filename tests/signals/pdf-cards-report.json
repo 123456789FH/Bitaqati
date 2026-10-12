@@ -1,0 +1,222 @@
+{
+  "detectorSHA256": "f3b1300f3785188240506e7052c14bd26762257c20758e18244b927c406f7f22",
+  "pages": [
+    {
+      "mode": "feelings",
+      "page": 1,
+      "filename": "/workspace/scratch/9f9fd7808a8e/bitaqati-colors/cards/tmp/pdfs/feelings-1.png",
+      "width": 1273,
+      "height": 1800,
+      "actual": [
+        "feelings:1:green",
+        "feelings:1:red"
+      ],
+      "passed": true
+    },
+    {
+      "mode": "feelings",
+      "page": 2,
+      "filename": "/workspace/scratch/9f9fd7808a8e/bitaqati-colors/cards/tmp/pdfs/feelings-2.png",
+      "width": 1273,
+      "height": 1800,
+      "actual": [
+        "feelings:1:blue",
+        "feelings:1:yellow"
+      ],
+      "passed": true
+    },
+    {
+      "mode": "feelings",
+      "page": 3,
+      "filename": "/workspace/scratch/9f9fd7808a8e/bitaqati-colors/cards/tmp/pdfs/feelings-3.png",
+      "width": 1273,
+      "height": 1800,
+      "actual": [
+        "feelings:1:purple",
+        "feelings:1:white"
+      ],
+      "passed": true
+    },
+    {
+      "mode": "feelings",
+      "page": 4,
+      "filename": "/workspace/scratch/9f9fd7808a8e/bitaqati-colors/cards/tmp/pdfs/feelings-4.png",
+      "width": 1273,
+      "height": 1800,
+      "actual": [
+        "feelings:2:green",
+        "feelings:2:red"
+      ],
+      "passed": true
+    },
+    {
+      "mode": "feelings",
+      "page": 5,
+      "filename": "/workspace/scratch/9f9fd7808a8e/bitaqati-colors/cards/tmp/pdfs/feelings-5.png",
+      "width": 1273,
+      "height": 1800,
+      "actual": [
+        "feelings:2:blue",
+        "feelings:2:yellow"
+      ],
+      "passed": true
+    },
+    {
+      "mode": "feelings",
+      "page": 6,
+      "filename": "/workspace/scratch/9f9fd7808a8e/bitaqati-colors/cards/tmp/pdfs/feelings-6.png",
+      "width": 1273,
+      "height": 1800,
+      "actual": [
+        "feelings:2:purple",
+        "feelings:2:white"
+      ],
+      "passed": true
+    },
+    {
+      "mode": "feelings",
+      "page": 7,
+      "filename": "/workspace/scratch/9f9fd7808a8e/bitaqati-colors/cards/tmp/pdfs/feelings-7.png",
+      "width": 1273,
+      "height": 1800,
+      "actual": [
+        "feelings:3:green",
+        "feelings:3:red"
+      ],
+      "passed": true
+    },
+    {
+      "mode": "feelings",
+      "page": 8,
+      "filename": "/workspace/scratch/9f9fd7808a8e/bitaqati-colors/cards/tmp/pdfs/feelings-8.png",
+      "width": 1273,
+      "height": 1800,
+      "actual": [
+        "feelings:3:blue",
+        "feelings:3:yellow"
+      ],
+      "passed": true
+    },
+    {
+      "mode": "feelings",
+      "page": 9,
+      "filename": "/workspace/scratch/9f9fd7808a8e/bitaqati-colors/cards/tmp/pdfs/feelings-9.png",
+      "width": 1273,
+      "height": 1800,
+      "actual": [
+        "feelings:3:purple",
+        "feelings:3:white"
+      ],
+      "passed": true
+    },
+    {
+      "mode": "hats",
+      "page": 1,
+      "filename": "/workspace/scratch/9f9fd7808a8e/bitaqati-colors/cards/tmp/pdfs/hats-1.png",
+      "width": 1273,
+      "height": 1800,
+      "actual": [
+        "hats:1:red",
+        "hats:1:white"
+      ],
+      "passed": true
+    },
+    {
+      "mode": "hats",
+      "page": 2,
+      "filename": "/workspace/scratch/9f9fd7808a8e/bitaqati-colors/cards/tmp/pdfs/hats-2.png",
+      "width": 1273,
+      "height": 1800,
+      "actual": [
+        "hats:1:black",
+        "hats:1:yellow"
+      ],
+      "passed": true
+    },
+    {
+      "mode": "hats",
+      "page": 3,
+      "filename": "/workspace/scratch/9f9fd7808a8e/bitaqati-colors/cards/tmp/pdfs/hats-3.png",
+      "width": 1273,
+      "height": 1800,
+      "actual": [
+        "hats:1:blue",
+        "hats:1:green"
+      ],
+      "passed": true
+    },
+    {
+      "mode": "hats",
+      "page": 4,
+      "filename": "/workspace/scratch/9f9fd7808a8e/bitaqati-colors/cards/tmp/pdfs/hats-4.png",
+      "width": 1273,
+      "height": 1800,
+      "actual": [
+        "hats:2:red",
+        "hats:2:white"
+      ],
+      "passed": true
+    },
+    {
+      "mode": "hats",
+      "page": 5,
+      "filename": "/workspace/scratch/9f9fd7808a8e/bitaqati-colors/cards/tmp/pdfs/hats-5.png",
+      "width": 1273,
+      "height": 1800,
+      "actual": [
+        "hats:2:black",
+        "hats:2:yellow"
+      ],
+      "passed": true
+    },
+    {
+      "mode": "hats",
+      "page": 6,
+      "filename": "/workspace/scratch/9f9fd7808a8e/bitaqati-colors/cards/tmp/pdfs/hats-6.png",
+      "width": 1273,
+      "height": 1800,
+      "actual": [
+        "hats:2:blue",
+        "hats:2:green"
+      ],
+      "passed": true
+    },
+    {
+      "mode": "hats",
+      "page": 7,
+      "filename": "/workspace/scratch/9f9fd7808a8e/bitaqati-colors/cards/tmp/pdfs/hats-7.png",
+      "width": 1273,
+      "height": 1800,
+      "actual": [
+        "hats:3:red",
+        "hats:3:white"
+      ],
+      "passed": true
+    },
+    {
+      "mode": "hats",
+      "page": 8,
+      "filename": "/workspace/scratch/9f9fd7808a8e/bitaqati-colors/cards/tmp/pdfs/hats-8.png",
+      "width": 1273,
+      "height": 1800,
+      "actual": [
+        "hats:3:black",
+        "hats:3:yellow"
+      ],
+      "passed": true
+    },
+    {
+      "mode": "hats",
+      "page": 9,
+      "filename": "/workspace/scratch/9f9fd7808a8e/bitaqati-colors/cards/tmp/pdfs/hats-9.png",
+      "width": 1273,
+      "height": 1800,
+      "actual": [
+        "hats:3:blue",
+        "hats:3:green"
+      ],
+      "passed": true
+    }
+  ],
+  "cards": 36
+}

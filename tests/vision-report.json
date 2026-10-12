@@ -1,7 +1,7 @@
 {
   "status": "passed",
   "imageCases": 261,
-  "elapsedMs": 896,
+  "elapsedMs": 1142,
   "groups": [
     "all 40 card IDs × four rotations",
     "downsampled SVGs",
